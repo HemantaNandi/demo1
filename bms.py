@@ -58,7 +58,7 @@ class BookMyShowClient(object):
     if not self.__html:
       self.__html = self.__download()
     now_showing = re.findall(self.NOW_SHOWING_REGEX, self.__html)
-    return return {
+    return {
         "speech": now_showing,
         "displayText": now_showing,
        "source": "hemantademo"
