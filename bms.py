@@ -49,8 +49,8 @@ class BookMyShowClient(object):
     self.__html = None
 
   def __download(self):
-    req = urllib2.Request(self.__url, headers={'User-Agent' : "Magic Browser"})
-    html = urllib2.urlopen(req).read()
+    req = urllib.Request(self.__url, headers={'User-Agent' : "Magic Browser"})
+    html = urllib.urlopen(req).read()
     return html
 
   def get_now_showing(self):
