@@ -18,7 +18,7 @@ import os
 #from flask import request
 #from flask import make_response
 import re
-import urllib2
+from urllib.request import urlopen
 # Flask app should start in global layout
 #app = Flask(__name__)
 city ='Durgapur'
