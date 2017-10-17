@@ -71,13 +71,11 @@ if __name__ == '__main__':
   bms_client = BookMyShowClient(city)
   now_showing = bms_client.get_now_showing()
   #print str(now_showing), ' movies playing in Durgapur .'
-for xs in now_showing:
-   print(" ".join(map(str, xs)))
-  #return {
-       # "speech": now_showing,
-       # "displayText": now_showing,
-        # "data": data,
-        # "contextOut": [],
-       # "source": "apiai-weather-webhook-sample"
-   # }
+#for xs in now_showing:
+  # print(" ".join(map(str, xs)))
+  return {
+        "speech": now_showing,
+        "displayText": now_showing,
+       "source": "hemantademo"
+    }
     
