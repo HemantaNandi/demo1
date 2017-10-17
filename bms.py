@@ -4,26 +4,26 @@
 
 
 from __future__ import print_function
-#from future.standard_library import install_aliases
-#install_aliases()
+from future.standard_library import install_aliases
+install_aliases()
 
-#from urllib.parse import urlparse, urlencode
-#from urllib.request import urlopen, Request
-#from urllib.error import HTTPError
+from urllib.parse import urlparse, urlencode
+from urllib.request import urlopen, Request
+from urllib.error import HTTPError
 
 import json
 import os
 
-#from flask import Flask
-#from flask import request
-#from flask import make_response
+from flask import Flask
+from flask import request
+from flask import make_response
 import re
 from urllib.request import urlopen
 # Flask app should start in global layout
-#app = Flask(__name__)
+app = Flask(__name__)
 city ='Durgapur'
 
-#@app.route('/webhook', methods=['POST'])
+@app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
 
@@ -58,7 +58,11 @@ class BookMyShowClient(object):
     if not self.__html:
       self.__html = self.__download()
     now_showing = re.findall(self.NOW_SHOWING_REGEX, self.__html)
-    return now_showing
+    return return {
+        "speech": now_showing,
+        "displayText": now_showing,
+       "source": "hemantademo"
+    }
 
   def get_coming_soon(self):
     if not self.__html:
@@ -73,9 +77,5 @@ if __name__ == '__main__':
   #print str(now_showing), ' movies playing in Durgapur .'
 #for xs in now_showing:
   # print(" ".join(map(str, xs)))
-  return {
-        "speech": now_showing,
-        "displayText": now_showing,
-       "source": "hemantademo"
-    }
+  
     
